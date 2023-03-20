@@ -1,4 +1,3 @@
-from itemadapter import ItemAdapter, is_item
 from scrapy import signals
 
 
@@ -18,9 +17,6 @@ class PepParseSpiderMiddleware:
 
     def process_spider_exception(self, response, exception, spider):
         pass
-
-        for r in start_requests:
-            yield r
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
