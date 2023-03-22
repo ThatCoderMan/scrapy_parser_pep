@@ -10,7 +10,7 @@ PEP_NUMBER_REG_EXPRESSION = r'^PEP\s(?P<number>\d+)\s–\s'
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    start_urls = [f'https://{allowed_domains[0]}/']
 
     def parse(self, response):
         pep_links = response.xpath(
@@ -18,6 +18,7 @@ class PepSpider(scrapy.Spider):
             '//a[@class="pep reference internal"]/@href'
         ).getall()
         for link in pep_links:
+            link = response.urljoin(link) + '/'
             yield response.follow(link, callback=self.parse_pep)
 
     def parse_pep(self, response):
