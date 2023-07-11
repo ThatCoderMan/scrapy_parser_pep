@@ -1,47 +1,58 @@
 #Парсер Python.org
 
+![workflows](https://github.com/ThatCoderMan/scrapy_parser_pep/actions/workflows/workflow.yml/badge.svg)
+
+<details>
+<summary>Project stack</summary>
+
+- Python 3.10
+- Scrapy
+- GitHub Actions
+
+</details>
+
 ## Описание
+Данный код представляет собой асинхронный парсер документации Python 
+при помощи библиотеки **scrapy**. Он предоставляет возможность получить 
+информацию о PEP (Python Enhancement Proposal) и их статусах.
 
-Данный код представляет собой асинхронный парсер документации Python при помощи библиотеки **scrapy**. Он предоставляет возможность получить информацию о PEP (Python Enhancement Proposal) и их статусах.
 
-## Установка
-
-Для корректной работы парсера необходимо активировать вертуальное окружение.
-
-для Linux/MacOS
+### Инструкция по запуску:
+Клонируйте репозиторий:
+```commandline
+git clone git@github.com:ThatCoderMan/scrapy_parser_pep.git
 ```
-source venv/bin/activate
-```
-для Windows
-```
-venv/Scripts/activate
-```
+Установите и активируйте виртуальное окружение:
 
-После необходимо установить зависимости, указанные в файле `requirements.txt`. Для этого необходимо выполнить следующую команду:
-
-```
+- *для MacOS:*
+    ```commandline
+    python3 -m venv venv
+    ```
+- *для Windows:*
+    ```commandline
+    python -m venv venv
+    source venv/bin/activate
+    source venv/Scripts/activate
+    ```
+Установите зависимости из файла requirements.txt:
+```commandline
 pip install -r requirements.txt
 ```
 
-## Использование
-
+### Использование:
 Для запуска парсера необходимо перейти в папку pep_parse:
-
-```
+```commandline
 cd pep_parse
 ```
-
 И выполнить команду:
-
-```
+```commandline
 scrapy crawl pep 
 ```
-
 Результаты будут сохранены в папке results
-
 - в файле pep_<date>.csv находится информация по всем PEP (их номер, название и статус)
 - в файле status_summary_<date>.csv находится информация о колличестве статусов PEP
 
-## Авторы
 
-- [Artemii](https://github.com/ThatCoderMan)
+### Автор проекта:
+
+[Artemii Berezin](https://github.com/ThatCoderMan)
